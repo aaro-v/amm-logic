@@ -1,0 +1,42 @@
+# Node / JS
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+
+# Environment
+.env
+.env.*
+
+# Foundry / Solidity build artifacts
+/out/
+/cache/
+.forge/
+
+# Hardhat (if any leftover)
+artifacts/
+cache/
+
+# Test coverage
+coverage/
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Editors
+.vscode/
+*.swp
+
+# Logs and temporary files
+*.log
+*.tmp
+
+# IDE specific
+.idea/
+*.iml
+
+# Misc
+*.bak
+*.old
