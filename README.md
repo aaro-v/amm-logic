@@ -41,6 +41,12 @@ forge test -m "MintLiquidity" -vvv
 - Minting behavior: LP minted is `min(amount0 * totalSupply / reserve0, amount1 * totalSupply / reserve1)` — any unbalanced extra tokens remain in the pool and do not generate LP (they change price/value for existing LP holders).
 - The initial liquidity provider receives `sqrt(amount0 * amount1) - MINIMUM_LIQUIDITY` LP and a small `MINIMUM_LIQUIDITY` amount is locked (minted to a burn address) to prevent divide-by-zero.
 
+## TWAP Consumer
+
+- `contracts/TWAPConsumer.sol` proves how to derive a time-weighted average price from the pair’s cumulative price feeds and enforce a minimum output before swapping.
+- It stores observations, enforces a caller-specified time window, clamps the TWAP quote to the spot invariant (with the 0.3% fee), and only executes when `amountOut >= minAmountOut`.
+- `test/TWAPConsumer.t.sol` shows normal orders succeed after the window and attempts that rely on freshly manipulated spot prices are rejected, demonstrating resistance to flash-loan attacks.
+
 ## License
 
 MIT
